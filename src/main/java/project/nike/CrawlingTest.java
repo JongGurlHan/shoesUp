@@ -14,10 +14,13 @@ public class CrawlingTest {
         Elements el_name = doc.getElementsByAttributeValueContaining("class", "headline-3");
         Elements el_releaseTime = doc.getElementsByAttributeValueContaining("class", "headline-5");
 
-//        System.out.println(el_drawMonth.get(0).text());
-//        System.out.println(el_drawDate.get(0).text());
-//        System.out.println(el_name.get(0).text());
-//        System.out.println(el_releaseTime.get(0).text());
+//        원하는 정보 찾기
+//        getElementById
+//        getElementByTag
+        // getElementsByAttributeValueContaining
+        //getElementByClass
+        //getElementByAttribute
+
 
         for(int i = 0; i<el_name.size(); i++){
             System.out.println(el_drawMonth.get(i).text());
