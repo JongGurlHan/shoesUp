@@ -36,17 +36,7 @@
   </head>
   <body>
 
-  <!--/* 이곳에 각 view가 위치합니다. */-->
-  <th:block layout:fragment="head"></th:block>
-
-  <div>
-    <div layout:fragment="header"></div>
-
-    <div layout:fragment="content"></div>
-
-    <div layout:fragment="footer"></div>
-  </div>
-
+<header th:replace="include/header.html" :: header></header>
 
 <!-- --------------- 본문----------------- -->
 <main>
@@ -220,16 +210,7 @@
 
 </main>
 
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-</footer>
-
+<footer th:replace="include/footer.html" :: footer></footer>
 
     <script src="/js/bootstrap.bundle.min.js"></script>
 
