@@ -16,6 +16,10 @@ public class BoardController {
     public String freeBoard(){
         return "board/freeBoard";
     }
+    @GetMapping("/read")
+    public String read(){
+        return "board/read";
+    }
 
 
 }
