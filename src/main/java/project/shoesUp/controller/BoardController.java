@@ -21,5 +21,20 @@ public class BoardController {
         return "board/read";
     }
 
+    @GetMapping("/write")
+    public String write(){
+        return "board/write";
+    }
+
+    @GetMapping("/modify")
+    public String modify(){
+        return "board/modify";
+    }
+
+    @GetMapping("/delete")
+    public String delete(){
+        return "board/delete";
+    }
+
 
 }
