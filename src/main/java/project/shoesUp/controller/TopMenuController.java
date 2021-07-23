@@ -1,28 +1,22 @@
 package project.shoesUp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import project.shoesUp.service.TopMenuService;
 
 @Controller
 public class TopMenuController {
 
     @Autowired
-    TestUserService testUserService;
+    TopMenuService topMenuService;
 
     @GetMapping("/board/freeBoard")
-    private void getTopMenuList() throws Exception {
-        List<BoardInfoBean>topMenuList = testUserService.getUserList();
-
-        for(int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).toString());
-        }
+    private void getTopMenuList(){
+        topMenuService.
     }
 
+
+
+
 }
-//    @Autowired
-//    private TopMenuDao topMenuDao;
-//
-//    public List<BoardInfoBean> getTopMenuList(){
-//        List<BoardInfoBean> topMenuList = topMenuDao.getTopMenuList();
-//        return topMenuList;
-//    }
