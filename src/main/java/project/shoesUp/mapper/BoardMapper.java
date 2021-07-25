@@ -7,8 +7,7 @@ import project.shoesUp.beans.BoardInfoBean;
 import java.util.List;
 
 @Mapper
-@Repository
-public interface TopMenuMapper {
+public interface BoardMapper {
 
     List<BoardInfoBean> getTopMenuList() throws Exception ;
-}
+}ServletAppContext
