@@ -29,7 +29,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 
 	
 
-turn factory;
+
 	}
 	
 	// 쿼리문 실행을 위한 객체(Mapper 관리)
