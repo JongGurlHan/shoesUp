@@ -3,7 +3,7 @@ package project.shoesUp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.shoesUp.beans.BoardInfoBean;
-import project.shoesUp.mapper.BoardMapper;
+import project.shoesUp.dao.TopMenuDao;
 
 import java.util.List;
 
@@ -11,8 +11,11 @@ import java.util.List;
 public class TopMenuService {
 
     @Autowired
-    BoardMapper topMenuMapper;
+    private TopMenuDao topMenuDao;
 
-    public List<BoardInfoBean> getTop
+    public List<BoardInfoBean> getTopMenuList(){
+        List<BoardInfoBean> topMenuList = topMenuDao.getTopMenuList();
+        return topMenuList;
+    }
 
 }
