@@ -13,9 +13,6 @@ import java.util.List;
 @Configuration
 public class TopMenuInterceptor  implements HandlerInterceptor {
 
-//    @Autowired
-//    private TopMenuService topMenuService;
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         TopMenuService topMenuService = new TopMenuService();

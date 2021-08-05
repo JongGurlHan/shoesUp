@@ -10,10 +10,11 @@ import java.util.List;
 @Service
 public class TopMenuService {
 
-    @Autowired
-    private TopMenuDao topMenuDao;
+//    @Autowired
+//    private TopMenuDao topMenuDao;
 
     public List<BoardInfoBean> getTopMenuList(){
+        TopMenuDao topMenuDao = new TopMenuDao();
         List<BoardInfoBean> topMenuList = topMenuDao.getTopMenuList();
         return topMenuList;
     }
