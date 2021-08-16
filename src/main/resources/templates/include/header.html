@@ -14,10 +14,6 @@
 
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav">
-                <tr th:each="topMenuList: ${#request.getAttribute('topMenuList')}">
-
-
-                </tr>
                 <li class="nav-item">
                     <a href="/main" th:href="@{/main}" class="nav-link">upcoming</a>
                 </li>
@@ -29,6 +25,13 @@
                     <a href="/board/freeBoard" th:href="@{/board/freeBoard}" class="nav-link">자유게시판
                         <div th:text="${#request.getAttribute('message')}">message here</div></a>
                 </li>
+
+                <div th:text="${#request.getAttribute('topMenuList')}">message here</div>
+
+                <tr th:each="obj: ${#request.getAttribute('topMenuList')}">
+                    <td th:text="${obj.board_info_name}"></td>
+                </tr>
+
 
 
             </ul>
