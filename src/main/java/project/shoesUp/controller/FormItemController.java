@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.shoesUp.item.Item;
 import project.shoesUp.item.ItemRepository;
@@ -33,5 +34,19 @@ public class FormItemController {
         model.addAttribute("items", items);
         return "form/itmes";
     }
+
+    @GetMapping({"/{itemId}"})
+    public String item(@PathVariable long itemId, Model model){
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "form/item";
+    }
+
+    @GetMapping("/add")
+    public String addForm(Model model){
+        return "form/addForm";
+    }
+
+
 
 }

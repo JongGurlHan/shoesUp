@@ -12,5 +12,13 @@ public class Item {
     private ItemType itemType; //상품종류
     private String brand; // 브랜드 종류
 
+    public Item(){
+
+    }
+    public Item(String itemName, String date){
+        this.itemName = itemName;
+        this.date = date;
+    }
+
 
 }
