@@ -32,7 +32,7 @@ public class FormItemController {
     public String items(Model model){
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
-        return "form/itmes";
+        return "form/items";
     }
 
     @GetMapping({"/{itemId}"})
