@@ -19,8 +19,6 @@ public class TestDataInit {
 
     @PostConstruct
     public void init() throws IOException {
-//        itemRepository.save(new Item("itemA", "8/19"));
-//        itemRepository.save(new Item("itemB", "8/21"));
 
         String url = "https://www.nike.com/kr/launch/?type=upcoming";
 
@@ -32,9 +30,7 @@ public class TestDataInit {
         Elements el_releaseTime = doc.select("div.copy-container h3.headline-5");
 
         for(int i = 0; i<el_name.size(); i++){
-
             itemRepository.save(new Item(el_name.get(i).text(), el_drawMonth.get(i).text()+el_drawDate.get(i).text()));
-
         }
 
 
