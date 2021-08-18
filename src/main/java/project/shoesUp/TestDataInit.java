@@ -28,11 +28,15 @@ public class TestDataInit {
         Elements el_drawDate = doc.getElementsByAttributeValueContaining("class", "headline-1");
         Elements el_name = doc.getElementsByAttributeValueContaining("class", "headline-3");
         Elements el_releaseTime = doc.select("div.copy-container h3.headline-5");
+        Elements el_imgUrl = doc.select("div.product-card div.ncss-col-sm-12 a.card-link img.img-component");
+
+
 
         for(int i = 0; i<el_name.size(); i++){
-            itemRepository.save(new Item(el_name.get(i).text(), el_drawMonth.get(i).text()+el_drawDate.get(i).text()));
+            itemRepository.save(new Item(String.valueOf(el_name.get(i).text()),
+                    String.valueOf(el_drawMonth.get(i).text()) +String.valueOf(el_drawDate.get(i).text()),
+                        String.valueOf(el_imgUrl.get(i).attr("data-src"))));
         }
-
 
     }
 }

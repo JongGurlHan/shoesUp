@@ -2,6 +2,7 @@ package project.shoesUp.Crawler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -17,8 +18,8 @@ public class UpcomingCrawler {
         Elements el_name = doc.getElementsByAttributeValueContaining("class", "headline-3");
         Elements el_releaseTime = doc.select("div.copy-container h3.headline-5");
 
-        System.out.println(el_drawMonth.size());
-        System.out.println(el_name.get(0).text().getClass().getSimpleName());
+        Elements el_imgLink = doc.select("div.product-card div.ncss-col-sm-12 a.card-link img.img-component");
+//        String imgSrc = el_imgLink.attr("data-src");
 
 
         System.out.println("======================");
@@ -28,6 +29,7 @@ public class UpcomingCrawler {
             System.out.println("출시 일: "+el_drawDate.get(i).text());
             System.out.println("제품 명: "+el_name.get(i).text());
             System.out.println("출시 시간: "+el_releaseTime.get(i).text());
+            System.out.println("제품 사진: "+el_imgLink.get(i).attr("data-src"));
             System.out.println("===================================");
         }
     }

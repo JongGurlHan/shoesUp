@@ -8,12 +8,12 @@ public class MainController {
 
     @GetMapping("/")
     public String home(){
-        return "redirect:/main";
+        return "redirect:/form/items";
     }
 
     @GetMapping("/main")
     public String main(){
-        return "/form/itemsTest";
+        return "/form/items";
     }
 
 }

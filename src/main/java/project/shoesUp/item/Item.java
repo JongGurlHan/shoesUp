@@ -8,6 +8,7 @@ public class Item {
     private String itemName; //상품명
     private Integer price; //상품가격
     private String date; //출시일
+    private String imgUrl; // 이미지url
 
     private ItemType itemType; //상품종류
     private String brand; // 브랜드 종류
@@ -15,9 +16,15 @@ public class Item {
     public Item(){
 
     }
-    public Item(String itemName, String date){
+    public Item(String itemName, String date) {
         this.itemName = itemName;
         this.date = date;
+    }
+
+    public Item(String itemName, String date, String imgUrl) {
+        this.itemName = itemName;
+        this.date = date;
+        this.imgUrl = imgUrl;
     }
 
 
