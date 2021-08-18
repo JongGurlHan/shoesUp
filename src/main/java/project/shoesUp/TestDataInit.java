@@ -35,7 +35,10 @@ public class TestDataInit {
         for(int i = 0; i<el_name.size(); i++){
             itemRepository.save(new Item(String.valueOf(el_name.get(i).text()),
                     String.valueOf(el_drawMonth.get(i).text()) +String.valueOf(el_drawDate.get(i).text()),
-                        String.valueOf(el_imgUrl.get(i).attr("data-src"))));
+                        String.valueOf(el_imgUrl.get(i).attr("data-src")),
+                        String.valueOf(el_releaseTime.get(i).text())
+                    )
+            );
         }
 
     }

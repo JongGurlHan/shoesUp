@@ -75,18 +75,17 @@
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="0px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" >
-<!--              <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>-->
-<!--              <text x="50%" y="50%" fill="#eceeef" dy=".3em">tester</text>-->
-<
+
             <img th:src="${item.imgUrl}" src="https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/DH2684-001/b92e7e60-431c-4e90-b88a-9a0e8db1d2a1_primary.jpg?snkrBrowse">
             </svg>
 
             <div class="card-body">
-              <p class="card-text" th:text="${item.itemName}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text" th:text="${item.date}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text" th:text="${item.itemName}">상품명</p>
+              <span class="card-text" th:text="${item.date}+'일'">출시일</span>
+              <p class="card-text" th:text="${item.releaseTime}">출시시간</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">자세히</button>
+                  <button type="button" th:onclick="|location.href='@{/form/items/{itemId}(itemId=${item.id})}'|" class="btn btn-sm btn-outline-secondary">자세히</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">수정</button>
                 </div>
 <!--                <small class="text-muted">9 mins</small>-->

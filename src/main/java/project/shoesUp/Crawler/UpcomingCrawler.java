@@ -19,7 +19,6 @@ public class UpcomingCrawler {
         Elements el_releaseTime = doc.select("div.copy-container h3.headline-5");
 
         Elements el_imgLink = doc.select("div.product-card div.ncss-col-sm-12 a.card-link img.img-component");
-//        String imgSrc = el_imgLink.attr("data-src");
 
 
         System.out.println("======================");

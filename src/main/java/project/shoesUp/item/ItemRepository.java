@@ -32,6 +32,7 @@ public class ItemRepository {
         findItem.setItemName(updateParam.getItemName());
         findItem.setPrice(updateParam.getPrice());
         findItem.setDate(updateParam.getDate());
+        findItem.setReleaseTime(updateParam.getReleaseTime());
         findItem.setItemType(updateParam.getItemType());
         findItem.setBrand(updateParam.getBrand());
     }
