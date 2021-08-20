@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.shoesUp.item.Item;
 import project.shoesUp.item.ItemRepository;
 
@@ -42,6 +43,26 @@ public class FormItemController {
         return "form/item";
     }
 
+    @GetMapping("/add")
+    public String addForm(Model model){
+        model.addAttribute("item", new Item());
+        return "form/addForm";
+    }
+
+    @PostMapping("/add")
+    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
+
+//        log.info("item.open={}", item.getOpen());
+//        log.info("item.regions={}", item.getRegions());
+//        log.info("item.itemType={}", item.getItemType());
+
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/form/items/{itemId}";
+    }
+
+
     // 각 상품별 수정 폼 이동
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model){
@@ -56,11 +77,6 @@ public class FormItemController {
         return "redirect:/form/items/{itemId}";
     }
 
-
-    @GetMapping("/add")
-    public String addForm(Model model){
-        return "form/addForm";
-    }
 
 
 
