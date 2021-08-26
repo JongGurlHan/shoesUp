@@ -24,10 +24,10 @@ public class TestDataInit {
 
         Document doc = Jsoup.connect(url).get();
 
-        Elements el_drawMonth = doc.getElementsByAttributeValueContaining("class", "headline-4");
-        Elements el_drawDate = doc.getElementsByAttributeValueContaining("class", "headline-1");
-        Elements el_name = doc.getElementsByAttributeValueContaining("class", "headline-3");
-        Elements el_releaseTime = doc.select("div.copy-container h3.headline-5");
+        Elements el_drawMonth = doc.getElementsByAttributeValueContaining("class", "headline-4"); //출시월
+        Elements el_drawDate = doc.getElementsByAttributeValueContaining("class", "headline-1"); //출시일
+        Elements el_name = doc.getElementsByAttributeValueContaining("class", "headline-3"); //제품명
+        Elements el_releaseTime = doc.select("div.copy-container h3.headline-5"); //출시시간
         Elements el_imgUrl = doc.select("div.product-card div.ncss-col-sm-12 a.card-link img.img-component");
 
 

@@ -4,6 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.shoesUp.item.Item;
@@ -50,11 +53,27 @@ public class FormItemController {
     }
 
     @PostMapping("/add")
-    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
+    public String addItem(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
-//        log.info("item.open={}", item.getOpen());
-//        log.info("item.regions={}", item.getRegions());
-//        log.info("item.itemType={}", item.getItemType());
+        log.info("objectName={}", bindingResult.getObjectName());
+        log.info("target={}", bindingResult.getTarget());
+
+        //검증로직(field rule)
+        if(!StringUtils.hasText(item.getItemName())){
+//            bindingResult.addError((new FieldError("item", "itemName", "상품이름은 필수입니다.")));
+            bindingResult.rejectValue("itemName","required");
+        }
+//        if(item.getPrice() == null || item.getPrice() <1000 || item.getPrice() > 1000000){
+//            bindingResult.addError((new FieldError("item", "price", "가격은 1,000 ~ 1,000,000 까지 허용됩니다.")));
+//        }
+
+        if(bindingResult.hasErrors()){
+            log.info("error ={}", bindingResult);
+            //bindingResult는 자동으로 뷰로 넘어가기 때문에 굳이 model.addAttribute에 넣지 않아도 된다.
+            return "/form/addForm";
+        }
+
+
 
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());

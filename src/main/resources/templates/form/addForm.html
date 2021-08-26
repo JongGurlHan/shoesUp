@@ -8,6 +8,10 @@
         .container {
             max-width: 560px;
         }
+        .field-error{
+            border-color: #dc3545;
+            color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -24,6 +28,7 @@
             <label for="itemName" th:text="#{label.item.itemName}">상품명</label>
             <!--id,name을 자동으로 만들어준다., id는 label 때문에 남겨둔다.th:field="*{itemName}" == th:field="${item.itemName}"-->
             <input type="text" id="itemName"  th:field="*{itemName}" class="form-control" placeholder="이름을 입력하세요">
+            <div class="field-error" th:errors="*{itemName}"></div>
         </div>
         <div>
             <label for="itemDate" th:text="#{label.item.releaseDate}">출시일</label>
