@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import project.shoesUp.form.ItemSaveForm;
 import project.shoesUp.item.Item;
 import project.shoesUp.item.ItemRepository;
 
@@ -54,17 +55,10 @@ public class FormItemController {
     }
 
     @PostMapping("/add")
-    public String addItem(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    public String addItem(@Validated @ModelAttribute("item") ItemSaveForm form, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         log.info("objectName={}", bindingResult.getObjectName());
         log.info("target={}", bindingResult.getTarget());
-
-
-//        //검증로직(field rule)
-//        if(!StringUtils.hasText(item.getItemName())){
-////            bindingResult.addError((new FieldError("item", "itemName", "상품이름은 필수입니다.")));
-//            bindingResult.rejectValue("itemName","required");
-//        }
 
         //검증에 실패하면 다시 입력 폼으로
         if(bindingResult.hasErrors()){
@@ -73,7 +67,11 @@ public class FormItemController {
             return "/form/addForm";
         }
 
-
+        //성공로직
+        Item item = new Item();
+        item.setItemName(form.getItemName());
+        item.setDate(form.getDate());
+        item.setReleaseTime(form.getReleaseTime());
 
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());

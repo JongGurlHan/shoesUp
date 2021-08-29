@@ -33,10 +33,14 @@
         <div>
             <label for="itemDate" th:text="#{label.item.releaseDate}">출시일</label>
             <input type="text" id="itemDate"  th:field="*{date}"class="form-control" placeholder="출시일을 입력하세요">
+            <div class="field-error" th:errors="*{date}"></div>
+
         </div>
         <div>
             <label for="itemTime" th:text="#{label.item.releaseTime}">출시 시간</label>
             <input type="text" id="itemTime"  th:field="*{releaseTime}"class="form-control" placeholder="출시 시간을 입력하세요">
+            <div class="field-error" th:errors="*{releaseTime}"></div>
+
         </div>
 
         <hr class="my-4">
