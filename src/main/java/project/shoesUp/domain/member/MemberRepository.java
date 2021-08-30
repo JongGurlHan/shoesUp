@@ -16,7 +16,7 @@ public class MemberRepository {
     //회원저장
     public Member store(Member member){
         member.setId(++sequence);
-        log.info("save: member={}", member)
+        log.info("save: member={}", member);
         store.put(member.getId(), member);
         return member;
     }
