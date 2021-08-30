@@ -1,4 +1,4 @@
-package project.shoesUp.item;
+package project.shoesUp.domain.item;
 
 public enum ItemType {
     SHOES("신발"), SPORTSWEAR("스포츠웨어"), ETC("기타");

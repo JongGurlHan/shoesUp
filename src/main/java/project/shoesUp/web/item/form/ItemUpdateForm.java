@@ -1,4 +1,4 @@
-package project.shoesUp.form;
+package project.shoesUp.web.item.form;
 
 import lombok.Data;
 

@@ -5,8 +5,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
-import project.shoesUp.item.Item;
-import project.shoesUp.item.ItemRepository;
+import project.shoesUp.domain.item.Item;
+import project.shoesUp.domain.item.ItemRepository;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
