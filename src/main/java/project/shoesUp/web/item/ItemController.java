@@ -1,5 +1,6 @@
 package project.shoesUp.web.item;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,15 +19,16 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/form/items")
 @Controller
-public class FormItemController {
+//@RequiredArgsConstructor
+public class ItemController {
 
     private final ItemRepository itemRepository;
 
-    // FormItemController가 스프링 bean에 등록 됨으로써 생성자 주입으로 ItemRepository가 주입된다.
+    // ItemController가 스프링 bean에 등록 됨으로써 생성자 주입으로 ItemRepository가 주입된다.
     // 스프링에선 생성자가 딱 하나만 있다면 @Autowired 생략가능
     // 롬복의 @RequiredArgsConstructor를 쓰면 생성자 자동만들어서 아래 전체 생략가능
     @Autowired
-    public FormItemController(ItemRepository itemRepository) {
+    public ItemController(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
 

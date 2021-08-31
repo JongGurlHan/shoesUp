@@ -14,7 +14,7 @@ public class MemberRepository {
     private static long sequence = 0L;
 
     //회원저장
-    public Member store(Member member){
+    public Member save(Member member){
         member.setId(++sequence);
         log.info("save: member={}", member);
         store.put(member.getId(), member);

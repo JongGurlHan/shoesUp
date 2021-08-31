@@ -7,6 +7,8 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
 import project.shoesUp.domain.item.Item;
 import project.shoesUp.domain.item.ItemRepository;
+import project.shoesUp.domain.member.Member;
+import project.shoesUp.domain.member.MemberRepository;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -16,9 +18,18 @@ import java.io.IOException;
 public class TestDataInit {
 
     private final ItemRepository itemRepository;
+    private final MemberRepository memberRepository;
+
 
     @PostConstruct
     public void init() throws IOException {
+
+        Member member = new Member();
+        member.setLoginId("test");
+        member.setPassword("test!");
+        member.setName("테스터");
+        memberRepository.save(member);
+
 
         String url = "https://www.nike.com/kr/launch/?type=upcoming";
 

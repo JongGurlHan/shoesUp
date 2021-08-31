@@ -11,9 +11,4 @@ public class MainController {
         return "redirect:/form/items";
     }
 
-    @GetMapping("/main")
-    public String main(){
-        return "/form/items";
-    }
-
 }
