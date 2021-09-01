@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import project.shoesUp.domain.login.LoginService;
 import project.shoesUp.domain.member.Member;
+import project.shoesUp.web.SessionConst;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Slf4j
@@ -25,7 +28,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult){
+    public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletRequest request){
         if(bindingResult.hasErrors()){
             return "login/loginForm";
         }
@@ -36,8 +39,35 @@ public class LoginController {
             return "login/loginForm";
         }
 
-        //로그인 성공처리 TODO
+        //로그인 성공처리
+        //세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성
+        HttpSession session = request.getSession();
+
+        //세션에 로그인 회원 정보를 보관
+        session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
         return "redirect:/";
     }
+
+//    request.getSession(true)
+//    세션이 있으면 기존 세션을 반환한다.
+//    세션이 없으면 새로운 세션을 생성해서 반환한다.
+//
+//    request.getSession(false)
+//    세션이 있으면 기존 세션을 반환한다.
+//    세션이 없으면 새로운 세션을 생성하지 않는다. null 을 반환한다.
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request){ //쿠키값을 꺼내야하기 때문에 request
+        HttpSession session = request.getSession(false ); //세션을 없애는게 목적이기 때문에
+        if(session != null){
+            session.invalidate(); //세션과 그 안에 있는 데이터가 날라간다
+        }
+   //     return "redirect:/";
+        return "redirect:form/items";
+    }
+
+
+
+
 }

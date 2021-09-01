@@ -1,4 +1,4 @@
-package project.shoesUp.web.member;
+package project.shoesUp.web.Member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
