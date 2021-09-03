@@ -24,7 +24,7 @@ public class MainController {
         //세션에 회원 데이터가 없으면
         if(loginMember ==null){
             //return "redirect:/form/items";
-            return "redirect:form/items";
+            return "home";
         }
 
         //세션이 유지되면

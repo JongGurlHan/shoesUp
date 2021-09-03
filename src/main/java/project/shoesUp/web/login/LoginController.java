@@ -64,7 +64,7 @@ public class LoginController {
             session.invalidate(); //세션과 그 안에 있는 데이터가 날라간다
         }
    //     return "redirect:/";
-        return "redirect:form/items";
+        return "redirect:/";
     }
 
 
