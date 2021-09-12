@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import project.shoesUp.domain.member.Member;
 import project.shoesUp.domain.member.MemberRepository;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class LoginService {

@@ -1,6 +1,7 @@
 package project.shoesUp.domain.member;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,6 +10,9 @@ import java.util.*;
 @Slf4j
 @Repository
 public class MemberRepository {
+
+    @Autowired
+    private MemberMapper memberMapper;
 
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
