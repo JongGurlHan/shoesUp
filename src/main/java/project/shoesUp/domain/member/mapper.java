@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 interface MemberMapper {
 
-    @Insert("inser into user_table (id, loginId, name, password)" +
+    @Insert("insert into user_table (id, loginId, name, password)" +
             "values(#{id}, #{loginId}, #{name}, #{password})")
     void addUserInfo(Member member);
 }

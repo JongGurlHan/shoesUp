@@ -25,10 +25,10 @@ public class TestDataInit {
     public void init() throws IOException {
 
         Member member = new Member();
-        member.setLoginId("test");
-        member.setPassword("test!");
-        member.setName("테스터");
-        memberRepository.save(member);
+//        member.setLoginId("test");
+//        member.setPassword("test!");
+//        member.setName("테스터");
+//        memberRepository.save(member);
 
 
         String url = "https://www.nike.com/kr/launch/?type=upcoming";

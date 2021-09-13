@@ -17,12 +17,17 @@ public class MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
 
-    //회원저장
-    public Member save(Member member){
-        member.setId(++sequence);
-        log.info("save: member={}", member);
-        store.put(member.getId(), member);
-        return member;
+    //회원저장1
+    //public Member save(Member member){
+//        member.setId(++sequence);
+//        log.info("save: member={}", member);
+//        store.put(member.getId(), member);
+//        return member;
+//    }
+    //회원저장2
+    public void save(Member member){
+      member.setId(++sequence);
+      memberMapper.addUserInfo(member);
     }
 
     //회원조회
